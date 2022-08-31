@@ -1,0 +1,68 @@
+
+
+
+.timelineTitle {
+    color: #00ffff;
+    font-size: 42px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+    /* CONTAINER AROUND CONTENT */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+    /* BACKGROUND COLOR AND FONT FOR TIMELINE */
+body {
+    
+    font-family: 'Courier New', Courier, monospace;
+}
+
+    /* VERTICLE DIVIDER */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+    /* THE ACTUAL WHITE VERTICLE LINE */
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    background-color: #00ffff;
+    top: 10px;
+
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+  }
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+  }
