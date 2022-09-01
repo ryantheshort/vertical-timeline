@@ -1,23 +1,17 @@
 
-
-.timelineTitle {
-    color: #00ffff;
-    font-size: 42px;
-    margin-top: 50px;
-    text-align: center;
-}
-
-* {
+html {
     box-sizing: border-box;
 }
 
-    /* CONTAINER AROUND CONTENT */
-.container {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
+*::before, *::after {
+    box-sizing: inherit;
 }
+
+ul {
+    list-style: none;
+}
+
+
 
 h2 {
     padding: 1px 1px;
@@ -27,96 +21,75 @@ h2 {
 }
 
 p {
-    color: #ffffff;
+    color: #000000;
 }
-/* The circles on the timeline */
-.container::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #FF9F55;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
+
 
     /* BACKGROUND COLOR AND FONT FOR TIMELINE */
 body {
-    background-color: #181818;
+    background-color: #A9A9A9;
     font-family: 'Courier New', Courier, monospace;
 }
 
+.event:nth-child(even) {
+    margin-left: auto;
+}
+
+/* CONTAINER AROUND CONTENT */
+.event {
+    
+    width: 45%;
+    background-color: red;
+    margin-top: 25px;
+    border-radius: 7px;
+  }
+
+  .event::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-image: "images/icon.png";
+        
+        background-color: #276188;
+        border: 4px solid #276188;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+  }
+
+
     /* VERTICLE DIVIDER */
-.timeline {
+.container {
     position: relative;
-    max-width: 1200px;
+    min-height: 100vh;
+    width: 90%;
     margin: 0 auto;
 }
 
-    /* THE ACTUAL DIVIDER VERTICLE LINE */
-.timeline::after {
-    content: '';
+.container::before {
+    content: "";
     position: absolute;
-    width: 5px;
-    background-color: #ffffff;
-    top: 0px;
+    border: solid 2px #276188;
+    top: 0;
     bottom: 0;
-    margin-left: -3px;
     left: 50%;
-
+    transform: translateX(-50%);
 }
 
-/* Place containers to the LEFT */
-.left {
-    left: 0;
-  }
-
-/* Places the container to the RIGHT */
-.right {
-    left: 50%;
-  }
-
-  /* Fixes the circle for containers on the right side */
-.right::after {
-    left: -16px;
-  }
-  
-  /* Gives each event box a transparent border */
-  .event {
-    padding: 20px 30px;
-    background-color: transparent;
-    position: relative;
-    border-radius: 7px;
-  }
-    .event:nth-child(1){
-    background-image: url("images/firstcat.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
+.timeline {
+    display: flex;
+    flex-direction: column;
 }
 
-.event:nth-child(2) {
-    background-image: url("images/secondcat.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
+.event:nth-child(even) {
+    margin-left: auto;
 }
-.event:nth-child(3){
-    background-image: url("images/thirdcat.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 
 
 /* Adds arrows to the left container (pointing right) */
-.left::before {
+.event::before {
     content: " ";
     height: 0;
     position: absolute;
